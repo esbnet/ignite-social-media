@@ -97,7 +97,7 @@
 	max-height: 0;
 }
 
-.commentForm:focus-within footer{
+.commentForm:focus-within footer {
 	visibility: visible;
 	max-height: none;
 }
@@ -117,4 +117,8 @@
 
 .commentForm button[type="submit"]:hover {
 	background: var(--yellow-300);
+}
+
+.commentList {
+	margin-top: 2rem;
 }
