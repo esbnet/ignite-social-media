@@ -13,6 +13,10 @@
 	--yellow-500: #eab308;
 }
 
+:focus {
+	outline: transparent !important;
+	box-shadow: 0 0 0 2px var(--yellow-300) !important;
+}
 * {
 	margin: 0;
 	padding: 0;
