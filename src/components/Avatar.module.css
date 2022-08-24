@@ -1,0 +1,11 @@
+.avatar {
+	box-sizing: initial;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	border: 2px solid var(--yellow-500);
+	outline: 2px solid var(--gray-800);
+	margin-top: -3rem;
+	margin-bottom: 10px;
+}
+
