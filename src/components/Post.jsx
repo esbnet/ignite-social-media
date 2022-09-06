@@ -12,7 +12,9 @@ export function Post({ id, author, content, publishedAt }) {
     const [comments, setComments] = useState([
         'Post muito bacana, hein?!'
     ]);
+
     const [newCommentText, setNewCommentText] = useState('');
+
     const publishedAtFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR,
     });
@@ -29,6 +31,11 @@ export function Post({ id, author, content, publishedAt }) {
 
     function handleNewCommentChange() {
         setNewCommentText(event.target.value);
+        event.target.setCustomValidity('');
+    }
+
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('É necessário preencher com algum conteúdo!')
     }
 
     function deleteComment(commentToDelete) {
@@ -38,6 +45,8 @@ export function Post({ id, author, content, publishedAt }) {
         setComments(commentsWithoutDeleteOne)
     }
 
+    const isNewCommentEmpty = newCommentText.length === 0;
+    
     return (
         <article className={styles.post}>
             <header>
@@ -69,9 +78,11 @@ export function Post({ id, author, content, publishedAt }) {
                     placeholder="Deixe seu comentário..."
                     onChange={handleNewCommentChange}
                     value={newCommentText}
+                    onInvalid={handleNewCommentInvalid}
+                    required
                 />
                 <footer>
-                    <button type='submit'>Comentar</button>
+                    <button type='submit' disabled={isNewCommentEmpty} >Comentar</button>
                 </footer>
             </form>
 
